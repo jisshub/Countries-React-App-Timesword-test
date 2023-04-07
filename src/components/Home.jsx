@@ -4,7 +4,10 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { useEffect, useState } from 'react';
 import Footer from './Footer';
-import { data } from 'autoprefixer';
+
+// react icons
+import {GiHamburgerMenu} from 'react-icons/gi';
+import {GrClose} from 'react-icons/gr';
 
 const Home = () => {
 
@@ -40,7 +43,9 @@ const Home = () => {
     <div>
         <header className="header">
             <h2>Countries</h2>
-            <nav>
+
+            {/* web version of nav */}
+            <nav className='web-nav'>
                 <ul>
                     <li>
                         <a 
@@ -50,11 +55,40 @@ const Home = () => {
                         </a>
                     </li>
 
-                    <li><a href="#" onClick={(e)=>handleClick(e.target.innerHTML, data)}>Asia</a></li>
+                    <li>
+                        <a 
+                            href="#" 
+                            onClick={(e)=>handleClick(e.target.innerHTML, data)}>
+                            Asia
+                        </a>
+                    </li>
 
-                    <li><a href="#" onClick={(e)=>handleClick(e.target.innerHTML, data)}>Europe</a></li>
-                </ul>    
+                    <li>
+                        <a 
+                            href="#" 
+                            onClick={(e)=>handleClick(e.target.innerHTML, data)}>
+                            Europe
+                        </a>
+                    </li>
+                </ul>
             </nav>
+
+            {/* mobile version of nav */}
+            <nav className='mobile-nav'>
+                <div className='openMenu'>
+                    <GiHamburgerMenu />
+                </div>
+                <ul>
+                    <li><a href="#">All</a></li>
+                    <li><a href="#">Asia</a></li>
+                    <li><a href="#">Europe</a></li>
+                    <li><a href="#">Africa</a></li>
+                    <div className='closeMenu'>
+                     <GrClose />
+                    </div>
+                </ul>
+            </nav>
+
         </header>
         
         <div className='section'>
