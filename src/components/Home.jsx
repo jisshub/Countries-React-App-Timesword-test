@@ -1,19 +1,10 @@
 import './Home.css'
-import { useState, useEffect } from 'react';
 import useFetch from '../hooks/useFetch';
+import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
 const Home = () => {
     const {data, loading, error} = useFetch('https://restcountries.com/v2/all?fields=name,region,flag')
-
-
-    // const countries = data.slice(0,20)
-    // console.log(countries)
-
-    // const [countriesData, setCountriesData] = useState(countries)
-
-    // console.log(countriesData)
-
-
 
     if (loading) {
         return <div>Loading...</div>;
@@ -35,12 +26,21 @@ const Home = () => {
                 </ul>    
             </nav>
         </header>
-        <div>
-            {data.map((country)=>(
-                <>  
-                    <h5>{country.name}</h5>
-                </>
-            ))}
+        
+        <div className='section'>
+            {
+                data.map((country)=>(
+                    <Card>
+                        <Card.Img variant="top" src={country.flag}/>
+                        <Card.Body>
+                            <Card.Title>
+                                    {country.name}
+                            </Card.Title>
+                            <Card.Text>{country.region}</Card.Text>
+                        </Card.Body>
+                    </Card>
+                ))
+            }
         </div>
     </div>
     )
