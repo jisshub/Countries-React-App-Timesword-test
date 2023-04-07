@@ -82,6 +82,11 @@ img {
     display: none;
 }
 
+.mainMenu {
+    display: none;
+    list-style: none;
+}
+
 /* media queries */
 @media (max-width: 768px) {
     .web-nav {
@@ -90,4 +95,27 @@ img {
     .mobile-nav {
         display: block;
     }
+    .openMenu {
+        font-size: 2rem;
+        margin: 20px;
+        display: block;
+        cursor: pointer;
+    }
+    .mainMenu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 10;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: top 1s ease;
+    }
+    .closemenu {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }   
 }

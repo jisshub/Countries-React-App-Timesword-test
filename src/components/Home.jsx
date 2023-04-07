@@ -13,7 +13,23 @@ const Home = () => {
 
     const [allcountries, setAllCountries] = useState([])
     const [getFilteredCountries, setGetFilteredCountries] = useState([])     
-    
+
+    const mainMenu = document.querySelector('.mainMenu')
+    const closeMenu = document.querySelector('.closeMenu')
+    const openMenu = document.querySelector('.openMenu')
+
+    // openMenu.addEventListener('click', show);
+    // closeMenu.addEventListener('click', closeBtn);
+
+    // function show() {
+    //     mainMenu.style.display = 'flex';
+    //     mainMenu.style.top = '0';
+    // }
+
+    // function closeBtn() {
+    //     mainMenu.style.top = '-100%'
+    // }
+
     useEffect(()=>{
         fetchCountries()
     }, [])
@@ -78,7 +94,7 @@ const Home = () => {
                 <div className='openMenu'>
                     <GiHamburgerMenu />
                 </div>
-                <ul>
+                <ul className='mainMenu'>
                     <li><a href="#">All</a></li>
                     <li><a href="#">Asia</a></li>
                     <li><a href="#">Europe</a></li>
