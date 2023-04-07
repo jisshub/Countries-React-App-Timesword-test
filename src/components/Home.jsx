@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { useEffect, useState } from 'react';
 import Footer from './Footer';
+import { data } from 'autoprefixer';
 
 const Home = () => {
 
@@ -51,7 +52,7 @@ const Home = () => {
 
                     <li><a href="#" onClick={(e)=>handleClick(e.target.innerHTML, data)}>Asia</a></li>
 
-                    <li><a href="#" onClick={(e)=>handleClick(e.target.innerHTML)}>Europe</a></li>
+                    <li><a href="#" onClick={(e)=>handleClick(e.target.innerHTML, data)}>Europe</a></li>
                 </ul>    
             </nav>
         </header>

@@ -11,6 +11,12 @@ const Footer = () => {
             <TfiTwitter className='icon' />
             <SlSocialLinkedin className='icon' />
             <SlSocialYoutube className='icon' />
+            <p className='icon-email'>
+                Example@email.com
+            </p>
+            <p className='icon-copy'>
+                Copyright &copy; 2020 Name. All rights reserved.
+            </p>
         </>
     )
 }
