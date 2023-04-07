@@ -31,19 +31,27 @@ const Home = () => {
         return data.filter((country) => country.region.toLowerCase().includes(textValue.toLowerCase()))
     }
 
+    function fetchAllCountries() {
+        setGetFilteredCountries(allcountries)
+    }
+
     return (
     <div>
         <header className="header">
             <h2>Countries</h2>
             <nav>
                 <ul>
-                    
-                    <li><a href="#">All</a></li>
+                    <li>
+                        <a 
+                            href="#" 
+                            onClick={fetchAllCountries}>
+                            All
+                        </a>
+                    </li>
 
                     <li><a href="#" onClick={(e)=>handleClick(e.target.innerHTML, data)}>Asia</a></li>
 
                     <li><a href="#" onClick={(e)=>handleClick(e.target.innerHTML)}>Europe</a></li>
-
                 </ul>    
             </nav>
         </header>
