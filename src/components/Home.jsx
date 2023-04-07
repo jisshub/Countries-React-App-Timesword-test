@@ -3,7 +3,7 @@ import useFetch from '../hooks/useFetch';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { useEffect, useState } from 'react';
-import { data } from 'autoprefixer';
+import Footer from './Footer';
 
 const Home = () => {
 
@@ -71,6 +71,10 @@ const Home = () => {
                     </Card>
                 ))
             }
+        </div>
+        
+        <div className='icons'>
+            <Footer />
         </div>
     </div>
     )
