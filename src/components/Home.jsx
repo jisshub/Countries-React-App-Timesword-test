@@ -2,16 +2,33 @@ import './Home.css'
 import useFetch from '../hooks/useFetch';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import { useEffect, useState } from 'react';
+import { data } from 'autoprefixer';
 
 const Home = () => {
-    const {data, loading, error} = useFetch('https://restcountries.com/v2/all?fields=name,region,flag')
 
-    if (loading) {
-        return <div>Loading...</div>;
-    }
+    const [allcountries, setAllCountries] = useState([])
+    const [getFilteredCountries, setGetFilteredCountries] = useState([])     
     
-    if (error) {
-        return <div>Error: {error.message}</div>;
+    useEffect(()=>{
+        fetchCountries()
+    }, [])
+
+    async function fetchCountries() {
+        const response = await fetch('https://restcountries.com/v2/all?fields=name,region,flag');
+        const json = await response.json();
+        setAllCountries(json);
+        setGetFilteredCountries(json)
+    }
+
+    
+    function handleClick(textValue) {
+        const data = filterCountries(textValue, allcountries)
+        setGetFilteredCountries(data)
+    }
+
+    function filterCountries(textValue, data) {
+        return data.filter((country) => country.region.toLowerCase().includes(textValue.toLowerCase()))
     }
 
     return (
@@ -20,21 +37,26 @@ const Home = () => {
             <h2>Countries</h2>
             <nav>
                 <ul>
+                    
                     <li><a href="#">All</a></li>
-                    <li><a href="#">Asia</a></li>
-                    <li><a href="#">Europe</a></li>
+
+                    <li><a href="#" onClick={(e)=>handleClick(e.target.innerHTML, data)}>Asia</a></li>
+
+                    <li><a href="#" onClick={(e)=>handleClick(e.target.innerHTML)}>Europe</a></li>
+
                 </ul>    
             </nav>
         </header>
         
         <div className='section'>
             {
-                data.map((country)=>(
-                    <Card>
+                getFilteredCountries
+                .map((country)=>(
+                    <Card key={country.name}>
                         <Card.Img variant="top" src={country.flag}/>
                         <Card.Body>
                             <Card.Title>
-                                    {country.name}
+                                {country.name}
                             </Card.Title>
                             <Card.Text>{country.region}</Card.Text>
                         </Card.Body>
