@@ -23,6 +23,8 @@ git checkout remotes/origin/master
 
 5. Run `npm run dev` to start the development server.
 
+App deployed to https://elegant-kheer-25b3e7.netlify.app/
+
 
 ### Screenshot
 ![](./src/assets/image1.png)
