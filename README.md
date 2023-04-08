@@ -2,7 +2,15 @@
 
 1. Clone the repository to local machine.
 
+```bash
+git clone https://github.com/jisshub/Countries-React-App-Timesword-test.git
+```
+
 2. Change directory to app directory.
+
+```bash
+cd .\Countries-React-App-Timesword-test\
+```
 
 3. Checkout branch to `master` branch to view the app directories and files.
 
@@ -11,7 +19,7 @@ git branch -a
 git checkout remotes/origin/master
 ```
 
-4. Run `npm install` on terminal.
+4. Run `npm install` on your terminal.
 
-5. Run `npm run dev` to start the dev server.
+5. Run `npm run dev` to start the development server.
 
