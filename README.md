@@ -23,4 +23,6 @@ git checkout remotes/origin/master
 
 5. Run `npm run dev` to start the development server.
 
+
+### Screenshot
 ![](./src/assets/image1.png)
